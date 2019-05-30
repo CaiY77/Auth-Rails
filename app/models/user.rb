@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :username, presence: true, length: { maximum: 50 }
+  validates :username, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :email, presence: true, length: { maximum: 255 }, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "only allows valid emails" }
   has_secure_password
